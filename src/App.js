@@ -1,26 +1,24 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
+const App = ({handleChange, answer, handleSubmit}) => {
+  const appStyles = {
+    color: 'red'
+  }
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <form>
+        Addition: <input id="value1" type="number" onChange={handleChange} name="value1" />
+         + <input id="value2" onChange={handleChange} name="value2" />
+        <button type="submit" onClick={handleSubmit}>ADD</button>
+      </form>
+      <br />
+      <p id="answer" style={appStyles}>Answer: {answer}</p>
     </div>
   );
+}
+
+App.defaultProps = {
+  answer: ''
 }
 
 export default App;
